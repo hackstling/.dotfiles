@@ -10,6 +10,7 @@ return {
         config = function()
             require('mason-lspconfig').setup({
                 ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
+                -- ensure_installed = { "lua_ls", "clangd", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
             })
         end
     },
@@ -20,9 +21,9 @@ return {
 
             local lspconfig = require('lspconfig')
             lspconfig.lua_ls.setup({})
-            lspconfig.bashls.setup({})
+--            lspconfig.bashls.setup({})
             lspconfig.clangd.setup({})
-            lspconfig.pyright.setup({})
+--            lspconfig.pyright.setup({})
             lspconfig.pyre.setup({})
             lspconfig.jedi_language_server.setup({})
             lspconfig.pylsp.setup({})
