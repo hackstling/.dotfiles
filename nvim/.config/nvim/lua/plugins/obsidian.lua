@@ -14,8 +14,8 @@ return {
     require("obsidian").setup({
       workspaces = {
         {
-          name = "External Brain",
-          path = "/home/norbert/hacking/",
+          name = "Second Brain",
+          path = "$HOME/SecondBrain/",
         },
       },
 
