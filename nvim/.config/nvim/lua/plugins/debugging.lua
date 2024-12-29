@@ -10,6 +10,31 @@ return {
 
     require("dapui").setup()
 
+
+  dap.adapters.bash = {
+      type = 'executable',
+      command = 'bash-debug-adapter',
+      name = 'bash'
+    }
+
+  dap.configurations.sh = {
+    {
+      type = 'bash',
+      request = 'launch',
+      name = "Launch Bash Script",
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+      args = {},
+      env = function()
+        local variables = {}
+        for k, v in pairs(vim.fn.environ()) do
+          table.insert(variables, string.format("%s=%s", k, v))
+        end
+        return variables
+      end,
+    },
+  }
+
     -- Function to derive executable name from current source file
     local function get_executable_name()
       local file = vim.fn.expand("%:t")     -- Get current file name

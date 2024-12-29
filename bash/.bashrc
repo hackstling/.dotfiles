@@ -123,7 +123,7 @@ alias hack='/home/norbert/hacking/extb/hacking/tmux_setup.sh'
 alias discord='/home/norbert/softWare/Discord/Discord'
 
 # ADDED BY ME for NeoVim installation
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux64/bin:/home/norbert/.local/share/nvim/mason/bin"
 
 # ADDED BY ME for StarShip
 eval "$(starship init bash)"
@@ -133,3 +133,4 @@ eval "$(starship init bash)"
 # [[ $- != *i* ]] && return
 # Otherwise start tmux
 # [[ -z "$TMUX" ]] && exec tmux
+. "$HOME/.cargo/env"
