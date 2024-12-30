@@ -266,3 +266,4 @@ bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/dmenu_shutdown.sh
 bindsym $mod+x exec --no-startup-id ~/.scripts/dmenu_extractor.sh
 bindsym $mod+Shift+d exec --no-startup-id ~/.scripts/dmenu_directories.sh
 bindsym $mod+Shift+w exec --no-startup-id ~/.scripts/dmenu_wifi.sh
+bindsym --release Print exec --no-startup-id ~/.scripts/screenshot.sh
