@@ -118,12 +118,13 @@ fi
 ## CUSTOMIZATION BY ME
 
 # ls commands
-alias obsi='/home/norbert/softWare/Obsidian-1.5.3.AppImage'
-alias hack='/home/norbert/hacking/extb/hacking/tmux_setup.sh'
-alias discord='/home/norbert/softWare/Discord/Discord'
+alias obsi="$HOME/softWare/Obsidian-1.8.9.AppImage"
+alias hack="$HOME/hacking/extb/hacking/tmux_setup.sh"
+alias discord="$HOME/softWare/Discord/Discord"
+alias logisim="$HOME/softWare/logisim/logisim_start.sh"
 
 # ADDED BY ME for NeoVim installation
-export PATH="$PATH:/opt/nvim-linux64/bin:/home/norbert/.local/share/nvim/mason/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/home/norbert/.local/share/nvim/mason/bin"
 
 # ADDED BY ME for StarShip
 eval "$(starship init bash)"
