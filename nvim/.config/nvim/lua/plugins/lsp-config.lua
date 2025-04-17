@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
+                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer" } -- find the list on github page of mason-lpsconfig
                 -- ensure_installed = { "lua_ls", "clangd", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
             })
         end
@@ -28,6 +28,7 @@ return {
             lspconfig.jedi_language_server.setup({})
             lspconfig.pylsp.setup({})
             lspconfig.jdtls.setup({})
+            lspconfig.rust_analyzer.setup({})
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "See documentation"})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition"})
