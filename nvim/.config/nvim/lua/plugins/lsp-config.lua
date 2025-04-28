@@ -20,20 +20,48 @@ return {
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
             local lspconfig = require('lspconfig')
-            lspconfig.lua_ls.setup({})
+            lspconfig.lua_ls.setup({ capabilities = capabilities })
 --            lspconfig.bashls.setup({})
-            lspconfig.clangd.setup({})
+            lspconfig.clangd.setup({ capabilities = capabilities })
 --            lspconfig.pyright.setup({})
-            lspconfig.pyre.setup({})
-            lspconfig.jedi_language_server.setup({})
-            lspconfig.pylsp.setup({})
-            lspconfig.jdtls.setup({})
-            lspconfig.rust_analyzer.setup({})
+            lspconfig.pyre.setup({ capabilities = capabilities })
+            lspconfig.jedi_language_server.setup({ capabilities = capabilities })
+            lspconfig.pylsp.setup({ capabilities = capabilities })
+            lspconfig.jdtls.setup({ capabilities = capabilities })
+            lspconfig.rust_analyzer.setup({
+              capabilities = capabilities,
+              settings = {
+                ["rust-analyzer"] = {
+                  cargo = {
+                    allFeatures = true,
+                  },
+                  checkOnSave = {
+                    command = "clippy",
+                  },
+                },
+              }
+            })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "See documentation"})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition"})
             vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "Code action"})
             vim.keymap.set('n', '<leader>ra', vim.lsp.buf.rename, { desc = "Rename"})
+        end
+    },
+    {
+        "simrat39/rust-tools.nvim",
+        config = function()
+            local rt = require("rust-tools")
+
+            rt.setup({
+                server = {
+                    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                    on_attach = function(_, bufnr)
+                        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+                        vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+                    end,
+                },
+            })
         end
     }
 }
