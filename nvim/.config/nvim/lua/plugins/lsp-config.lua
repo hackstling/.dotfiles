@@ -1,15 +1,18 @@
 return {
     {
         "williamboman/mason.nvim",
+        version = "1.8.3",
         config = function()
             require('mason').setup()
         end
     },
     {
         "williamboman/mason-lspconfig.nvim",
+        version = "1.29.0",
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer" } -- find the list on github page of mason-lpsconfig
+                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer" }, -- find the list on github page of mason-lpsconfig
+                automatic_installation = false
                 -- ensure_installed = { "lua_ls", "clangd", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
             })
         end
