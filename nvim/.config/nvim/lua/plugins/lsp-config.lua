@@ -12,7 +12,6 @@ return {
         config = function()
             require('mason-lspconfig').setup({
                 ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer" }, -- find the list on github page of mason-lpsconfig
-                automatic_installation = false
                 -- ensure_installed = { "lua_ls", "clangd", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
             })
         end
@@ -55,9 +54,10 @@ return {
         "simrat39/rust-tools.nvim",
         config = function()
             local rt = require("rust-tools")
-
+            local util = require("lspconfig.util")
             rt.setup({
                 server = {
+                  root_dir = util.root_pattern("Cargo.toml", ".git"), -- ⬅ prioritize Cargo.toml
                     capabilities = require('cmp_nvim_lsp').default_capabilities(),
                     on_attach = function(_, bufnr)
                         vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
