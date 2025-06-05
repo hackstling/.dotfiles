@@ -126,6 +126,10 @@ alias logisim="$HOME/softWare/logisim/logisim_start.sh"
 # ADDED BY ME for NeoVim installation
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/home/norbert/.local/share/nvim/mason/bin"
 
+
+export VISUAL=nvim
+export EDITOR=nvim
+
 # ADDED BY ME for StarShip
 eval "$(starship init bash)"
 
