@@ -130,6 +130,9 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/home/norbert/.local/share/nvim/ma
 export VISUAL=nvim
 export EDITOR=nvim
 
+alias mail-gmail='neomutt -F ~/.config/mutt/accounts/adamnorbert90@gmail.com.muttrc'
+alias mail-hackstling='neomutt -F ~/.config/mutt/accounts/info@hackstling.com.muttrc'
+
 # ADDED BY ME for StarShip
 eval "$(starship init bash)"
 
