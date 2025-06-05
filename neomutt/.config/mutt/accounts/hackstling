@@ -1,0 +1,17 @@
+set realname = "Your Name"
+set from = "info@hackstling.com"
+
+set folder = "~/.mail/hackstling"
+set spoolfile = "~/.mail/hackstling/Inbox"
+set record = "+Sent"
+set postponed = "+Drafts"
+
+set mbox_type = Maildir
+set mail_check = 60
+
+set smtp_url = "smtp://info@hackstling.com@smtp.dreamhost.com:587/"
+set smtp_pass = `pass email/hackstling`
+set sendmail="/usr/bin/msmtp"
+set use_from = yes
+set envelope_from = yes
+
