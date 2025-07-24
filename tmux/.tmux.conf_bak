@@ -1,0 +1,41 @@
+# Reload config
+unbind r
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded"
+
+# Set prefix
+set -g prefix C-s
+bind C-s send-prefix
+
+# Enable mouse support
+set -g mouse on
+
+# Vim-style pane navigation
+setw -g mode-keys vi
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Status bar at the top
+set -g status-position top
+
+# Copy selection to CopyQ clipboard
+bind-key -T copy-mode y send-keys -X copy-pipe-and-cancel "copyq add -"
+
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'egel/tmux-gruvbox'                   # Gruvbox theme
+set -g @plugin 'tmux-plugins/tmux-continuum'         # Auto-save sessions
+set -g @plugin 'tmux-plugins/tmux-resurrect'         # Restore sessions
+
+# Gruvbox theme options
+set -g @tmux-gruvbox 'dark256'
+
+# Optional: enable autosaving + restore for tmux-continuum
+set -g @continuum-restore 'on'
+set -g @resurrect-capture-pane-contents 'on'
+
+# Initialize TPM (must be at the bottom)
+run '~/.tmux/plugins/tpm/tpm'
+

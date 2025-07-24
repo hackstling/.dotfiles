@@ -1,6 +1,5 @@
 [settings]
-; include-file = ~/.config/polybar/colors/catpuccin_moca.ini
-include-file = ~/.config/polybar/colors/gruvbox.ini
+include-file = ~/.config/polybar/colors/catpuccin_moca.ini
 
 ;==========================================================
 ;
@@ -21,14 +20,13 @@ include-file = ~/.config/polybar/colors/gruvbox.ini
 ;==========================================================
 
 [colors]
-background = ${colors.bg0}
-background-alt = ${colors.bg3}
-foreground = ${colors.fg0}
-primary = ${colors.aqua}
-secondary = ${colors.bg5}
+background = ${colors.base}
+background-alt = ${colors.blue}
+foreground = ${colors.text}
+primary = ${colors.mauve}
+secondary = ${colors.mantle}
 alert = ${colors.red}
-disabled = ${colors.grey1}
-flamingo = ${colors.purple}
+disabled = ${colors.subtext1}
 
 [bar/toph]
 monitor = ${env:MONITOR:}
@@ -44,6 +42,7 @@ override-redirect = true
 wm-restack = i3
 
 ; dpi = 96
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -82,9 +81,9 @@ tray-spacing = 16pt
 type = internal/xworkspaces
 
 label-active = %name%
-label-active-background = ${colors.aqua}
-label-active-foreground = ${colors.bg0}
-label-active-underline = ${colors.aqua}
+label-active-background = ${colors.mauve}
+label-active-foreground = ${colors.crust}
+label-active-underline= ${colors.lauve}
 label-active-padding = 1
 
 label-occupied = %name%
@@ -108,13 +107,10 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F${colors.yellow}}%mountpoint%%{F-} %percentage_used%%
+label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
-
-; label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
-; label-unmounted = %mountpoint% not mounted
-; label-unmounted-foreground = ${colors.disabled}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -167,7 +163,7 @@ animation-charging-3 = 
 animation-charging-4 = 
 ; Framerate in milliseconds
 animation-charging-framerate = 750
-animation-charging-foreground = ${colors.green}
+animation-charging-foreground = ${colors.peach}
 format-discharging = <ramp-capacity> <label-discharging>
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -184,19 +180,17 @@ type = internal/network
 interval = 5
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-disconnected = %{F${colors.yellow}}%ifname%%{F${colors.grey1}} disconnected
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
 
 [module/wlan]
 inherit = network-base
 interface-type = wireless
-label-connected = %{F#d8a657}%ifname%%{F-} %essid%
-; label-connected = %{F${colors.yellow}%ifname%%{F-} %essid%
+label-connected = %{F#F0C674}%ifname%%{F-} %essid%
 
 [module/eth]
 inherit = network-base
 interface-type = wired
-; label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
-label-connected = %{F${colors.yellow}}%ifname%%{F-} %local_ip%
+label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 
 [module/date]
 type = internal/date
