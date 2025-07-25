@@ -4,7 +4,7 @@ return {
     priority = 1000,
     config = function()
         require("gruvbox").setup({
-            contrast = "hard",         -- or "soft", or "" for default
+            contrast = "soft",         -- or "soft", or "" for default
             italic = {
                 strings = false,
                 comments = true,
