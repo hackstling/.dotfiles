@@ -1,7 +1,9 @@
 [general]
 import = [
   # "~/.config/alacritty/catppuccin-mocha.toml"
-  "~/.config/alacritty/gryvbox_dark.toml"
+  # "~/.config/alacritty/gruvbox_dark.toml"
+  "~/.config/alacritty/gruvbox_medium_dark.toml"
+  # "~/.config/alacritty/gruvbox_light.toml"
 ]
 
 [env]

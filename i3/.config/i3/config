@@ -205,6 +205,7 @@ for_window [class="Polybar"] floating enable
 #         status_command i3status
 # }
 
+# CATPUCCIN MOCA COLORS
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
 set $pink      #f5c2e7
