@@ -23,7 +23,7 @@ return {
 
             local lspconfig = require('lspconfig')
             lspconfig.lua_ls.setup({ capabilities = capabilities })
---            lspconfig.bashls.setup({})
+            lspconfig.bashls.setup({})
             lspconfig.clangd.setup({ capabilities = capabilities })
 --            lspconfig.pyright.setup({})
             lspconfig.pyre.setup({ capabilities = capabilities })
