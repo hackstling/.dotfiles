@@ -271,3 +271,5 @@ bindsym $mod+Shift+d exec --no-startup-id ~/.scripts/dmenu_directories.sh
 bindsym $mod+Shift+w exec --no-startup-id ~/.scripts/dmenu_wifi.sh
 bindsym --release Print exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/.scripts/keybindings.sh
+bindsym $mod+m exec --no-startup-id screenkey -p fixed -g 1000x40+40+900 --opacity 0.7 --font "Monospace Bold 20" --key-mode composed
+bindsym $mod+Shift+m exec --no-startup-id pkill screenkey

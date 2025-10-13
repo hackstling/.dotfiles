@@ -124,7 +124,7 @@ alias discord="$HOME/softWare/Discord/Discord"
 alias logisim="$HOME/softWare/logisim/logisim_start.sh"
 
 # ADDED BY ME for NeoVim installation
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/home/norbert/.local/share/nvim/mason/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/home/norbert/.local/share/nvim/mason/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/softWare/Telegram"
 
 
 export VISUAL=nvim

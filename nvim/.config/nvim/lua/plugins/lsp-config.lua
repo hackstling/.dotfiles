@@ -11,7 +11,7 @@ return {
         version = "1.29.0",
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer" }, -- find the list on github page of mason-lpsconfig
+                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer", "gopls" }, -- find the list on github page of mason-lpsconfig
                 -- ensure_installed = { "lua_ls", "clangd", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
             })
         end
@@ -21,16 +21,16 @@ return {
         config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-            local lspconfig = require('lspconfig')
-            lspconfig.lua_ls.setup({ capabilities = capabilities })
-            lspconfig.bashls.setup({})
-            lspconfig.clangd.setup({ capabilities = capabilities })
---            lspconfig.pyright.setup({})
-            lspconfig.pyre.setup({ capabilities = capabilities })
-            lspconfig.jedi_language_server.setup({ capabilities = capabilities })
-            lspconfig.pylsp.setup({ capabilities = capabilities })
-            lspconfig.jdtls.setup({ capabilities = capabilities })
-            lspconfig.rust_analyzer.setup({
+            -- Define configs
+            vim.lsp.config("lua_ls", { capabilities = capabilities })
+            vim.lsp.config("bashls", {})
+            vim.lsp.config("clangd", { capabilities = capabilities })
+            -- vim.lsp.config("pyright", {})
+            vim.lsp.config("pyre", { capabilities = capabilities })
+            vim.lsp.config("jedi_language_server", { capabilities = capabilities })
+            vim.lsp.config("pylsp", { capabilities = capabilities })
+            vim.lsp.config("jdtls", { capabilities = capabilities })
+            vim.lsp.config("rust_analyzer", {
               capabilities = capabilities,
               settings = {
                 ["rust-analyzer"] = {
@@ -43,6 +43,22 @@ return {
                 },
               }
             })
+
+            vim.lsp.config("gopls", {
+              capabilities = capabilities,
+              settings = {
+                gopls = {
+                  analyses = {
+                    unusedparams = true,
+                    shadow = true,
+                  },
+                  staticcheck = true,
+                },
+              },
+            })
+
+            -- Enable servers
+            vim.lsp.enable({ "lua_ls", "bashls", "clangd", "pyre", "jedi_language_server", "pylsp", "jdtls", "rust_analyzer", "gopls" })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "See documentation"})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition"})
