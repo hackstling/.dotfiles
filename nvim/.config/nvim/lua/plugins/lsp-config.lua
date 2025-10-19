@@ -67,20 +67,34 @@ return {
         end
     },
     {
-        "simrat39/rust-tools.nvim",
+        "mrcjkb/rustaceanvim",
+        version = "^5",        -- current major release
+        ft = { "rust" },
         config = function()
-            local rt = require("rust-tools")
-            local util = require("lspconfig.util")
-            rt.setup({
-                server = {
-                  root_dir = util.root_pattern("Cargo.toml", ".git"), -- ⬅ prioritize Cargo.toml
-                    capabilities = require('cmp_nvim_lsp').default_capabilities(),
-                    on_attach = function(_, bufnr)
-                        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-                        vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-                    end,
+            -- Configure rust-analyzer just like any other server
+            vim.lsp.config("rust_analyzer", {
+                capabilities = require("cmp_nvim_lsp").default_capabilities(),
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = { allFeatures = true },
+                        checkOnSave = { command = "clippy" },
+                    },
                 },
             })
-        end
+
+            -- Optionally, set keymaps specific to Rust
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "rust",
+                callback = function(ev)
+                    local buf = ev.buf
+                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,
+                        { buffer = buf, desc = "Rust code actions" })
+                    vim.keymap.set("n", "<leader>rr", "<cmd>RustLsp runnables<CR>",
+                        { buffer = buf, desc = "Rust runnables" })
+                    vim.keymap.set("n", "<leader>rd", "<cmd>RustLsp debuggables<CR>",
+                        { buffer = buf, desc = "Rust debuggables" })
+                end,
+            })
+        end,
     }
 }
