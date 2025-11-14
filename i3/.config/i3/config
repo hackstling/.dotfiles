@@ -273,5 +273,4 @@ bindsym --release Print exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym $mod+Shift+b exec --no-startup-id ~/.scripts/keybindings.sh
 bindsym $mod+m exec --no-startup-id screenkey -p fixed -g 1000x40+40+900 --opacity 0.7 --font "Monospace Bold 20" --key-mode composed
 bindsym $mod+Shift+m exec --no-startup-id pkill screenkey
-# bindsym $mod+p exec /home/norbert/.cargo/bin/spotify_player
-bindsym $mod+p exec notify-send "Key combo works."
+bindsym $mod+p exec alacritty -e /home/norbert/.cargo/bin/spotify_player
