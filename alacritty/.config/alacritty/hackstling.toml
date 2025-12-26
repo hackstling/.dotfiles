@@ -1,0 +1,23 @@
+[colors.primary]
+background = "0x2c2c36"
+foreground = "0xd9d0e2"
+
+[colors.normal]
+black   = "0x353540"
+red     = "0xff4500"
+green   = "0x00ff41"
+yellow  = "0xb58acf"  # Purple as yellow variant
+blue    = "0x00bfff"
+magenta = "0xb58acf"
+cyan    = "0x00ff41"
+white   = "0xb8b0c8"
+
+[colors.bright]
+black   = "0x5c5c70"
+red     = "0xff4500"
+green   = "0x00ff41"
+yellow  = "0xb58acf"
+blue    = "0x00bfff"
+magenta = "0xb58acf"
+cyan    = "0x00ff41"
+white   = "0xd9d0e2"
