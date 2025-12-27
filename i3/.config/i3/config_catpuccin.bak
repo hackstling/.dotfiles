@@ -205,37 +205,41 @@ for_window [class="Polybar"] floating enable
 #         status_command i3status
 # }
 
-# HACKSTLING COLOR SCHEME
-set $fg0 #D9D0E2 
-set $fg1 #B8B0C8
-set $gray #5C5C70
-set $blue #00BFFF
-set $green #00FF41
-set $orange #FF4500
-set $purple #B58ACF
-set $yellow #FF8C00  # Yellower variant for softer accents
-set $bg0 #2C2C36
-set $bg1 #353540
-set $bg2 #5C5C70  # Lighter neutral for overlays
-set $bg3 #B8B0C8  # Even lighter for subtle highlights
-set $surface0 #353540
-set $surface1 #5C5C70
-set $surface2 #B8B0C8
-set $overlay0 #5C5C70
-set $overlay1 #B8B0C8
-set $overlay2 #D9D0E2
-set $base #2C2C36
-set $mantle #353540
-set $crust #2C2C36
-
+# CATPUCCIN MOCA COLORS
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $yellow    #f9e2af
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
 
 # target                 title     bg    text      indicator    border
-client.focused          $mantle  $purple $mantle    $fg0	    $purple
-client.focused_inactive $overlay0 $base  $fg0       $fg0        $overlay0
-client.unfocused        $overlay0 $base  $fg0       $fg0        $overlay0
-client.urgent           $orange   $base  $orange    $overlay0   $orange
-client.placeholder      $overlay0 $base  $fg0       $overlay0   $overlay0
-client.background       $base
+client.focused           $mantle   $mauve $mantle  $rosewater $mauve
+client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
+client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
+client.urgent            $peach    $base  $peach   $overlay0  $peach
+client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
+client.background        $base
 
 
 # CUSTOMIZING VISUALS
