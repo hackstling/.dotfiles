@@ -1,9 +1,5 @@
--- Logo Pastel Neon Colorscheme (Enhanced Syntax - Mocha-Inspired)
--- Save as ~/.config/nvim/colors/logo-pastel-neon.lua
--- Usage: vim.cmd.colorscheme 'logo-pastel-neon'
--- Enhancements: More colorful syntax with palette accents for keywords/loops/functions.
--- Bash-specific: if/while/do/done in sky/sapphire, local in teal, functions in blue, vars in text (italic).
--- General: Expanded TS/legacy groups for vibrancy without overload.
+-- Logo Pastel Neon Colorscheme (Bash-Fixed Links - Mocha-Inspired)
+-- Fixes: Direct @keyword.conditional.bash to sky/bold; clears Statement link for TS priority.
 
 local colors = {
   -- Accents (neon pops from logo)
@@ -17,8 +13,8 @@ local colors = {
   yellow = "#FFD080",
   green = "#00FF41",
   teal = "#80E0E0",
-  sky = "#80C0FF",
-  sapphire = "#40A0FF",
+  sky = "#80C0FF",  -- For conditionals/loops
+  sapphire = "#40A0FF",  -- For do/done
   blue = "#00BFFF",
   lavender = "#D0B8E8",
 
@@ -53,29 +49,29 @@ hi("VertSplit", { fg = colors.surface0 })
 hi("SignColumn", { bg = nil })
 hi("EndOfBuffer", { fg = colors.base })
 
--- Syntax (enhanced with more accents for variety)
-hi("Constant", { fg = colors.green })  -- Strings, literals
+-- Syntax (core groups - Statement kept neutral for non-TS fallback)
+hi("Constant", { fg = colors.green })
 hi("String", { fg = colors.green })
 hi("Character", { fg = colors.peach })
 hi("Number", { fg = colors.yellow })
 hi("Boolean", { fg = colors.peach })
 hi("Float", { fg = colors.yellow })
 
-hi("Function", { fg = colors.blue })  -- Functions, methods
-hi("Identifier", { fg = colors.text, italic = true })  -- Variables
-hi("Statement", { fg = colors.lavender })  -- Keywords, control flow
+hi("Function", { fg = colors.blue })
+hi("Identifier", { fg = colors.text, italic = true })  -- Italic vars
+hi("Statement", { fg = colors.lavender })  -- Neutral fallback
 hi("Keyword", { fg = colors.mauve, bold = true })
-hi("Conditional", { fg = colors.sky })  -- if/else/fi (more vibrant)
-hi("Repeat", { fg = colors.sky })  -- for/while (loop keywords)
-hi("Exception", { fg = colors.sapphire })  -- try/catch
+hi("Conditional", { fg = colors.sky, bold = true })  -- Legacy if/else
+hi("Repeat", { fg = colors.sky, bold = true })  -- Legacy for/while
+hi("Exception", { fg = colors.sapphire, bold = true })
 hi("Operator", { fg = colors.sapphire })
-hi("PreProc", { fg = colors.teal })  -- Macros, includes
+hi("PreProc", { fg = colors.teal })
 hi("Include", { fg = colors.teal })
 hi("Define", { fg = colors.mauve })
-hi("Type", { fg = colors.sky })  -- Types, classes
+hi("Type", { fg = colors.sky })
 hi("Typedef", { fg = colors.lavender })
 hi("Structure", { fg = colors.lavender })
-hi("Special", { fg = colors.pink })  -- Special chars
+hi("Special", { fg = colors.pink })
 hi("SpecialChar", { fg = colors.peach })
 hi("Tag", { fg = colors.blue })
 hi("Delimiter", { fg = colors.overlay2 })
@@ -83,17 +79,25 @@ hi("Error", { fg = colors.red, bold = true })
 hi("WarningMsg", { fg = colors.maroon })
 hi("Todo", { fg = colors.peach, bg = colors.mantle })
 
--- Bash/Shell Specific (legacy groups for keywords like local/if/while/do/done)
-hi("shDeref", { fg = colors.text, italic = true })  -- Variables ($var)
-hi("shFunction", { fg = colors.blue })  -- Function names
-hi("shStatement", { fg = colors.teal })  -- local, export
-hi("shConditional", { fg = colors.sky })  -- if, elif, else, fi
-hi("shLoop", { fg = colors.sky })  -- for, while
-hi("shRepeat", { fg = colors.sapphire })  -- do, done
-hi("shQuote", { fg = colors.green })  -- Strings
-hi("shArith", { fg = colors.yellow })  -- Arithmetic
+-- Bash/Shell Legacy (direct for bashls fallback)
+hi("shDeref", { fg = colors.text, italic = true })  -- $var
+hi("shFunction", { fg = colors.blue })
+hi("shStatement", { fg = colors.teal, bold = true })  -- local/export
+hi("shConditional", { fg = colors.sky, bold = true })  -- if/elif/else/fi
+hi("shLoop", { fg = colors.sky, bold = true })  -- for/while
+hi("shRepeat", { fg = colors.sapphire, bold = true })  -- do/done
+hi("shQuote", { fg = colors.green })
+hi("shArith", { fg = colors.yellow })
+-- Clear problematic links and re-link explicitly
+vim.cmd("hi! clear shIf shWhile shFor shDo shDone shLocal")
+vim.cmd("hi! link shIf shConditional")
+vim.cmd("hi! link shWhile shLoop")
+vim.cmd("hi! link shFor shLoop")
+vim.cmd("hi! link shDo shRepeat")
+vim.cmd("hi! link shDone shRepeat")
+vim.cmd("hi! link shLocal shStatement")
 
--- UI Elements
+-- UI Elements (unchanged)
 hi("StatusLine", { fg = colors.text, bg = colors.mantle })
 hi("StatusLineNC", { fg = colors.overlay1, bg = colors.base })
 hi("TabLine", { fg = colors.subtext1, bg = colors.surface0 })
@@ -106,13 +110,13 @@ hi("PmenuThumb", { bg = colors.overlay1 })
 hi("WinSeparator", { fg = colors.surface1 })
 hi("WildMenu", { fg = colors.base, bg = colors.lavender })
 
--- Diffs
+-- Diffs (unchanged)
 hi("DiffAdd", { fg = colors.green, bg = colors.surface1 })
 hi("DiffChange", { fg = colors.yellow, bg = colors.surface1 })
 hi("DiffDelete", { fg = colors.red, bg = colors.surface1 })
 hi("DiffText", { fg = colors.blue, bg = colors.surface1 })
 
--- LSP/Diagnostics (Catppuccin-style)
+-- LSP/Diagnostics (unchanged)
 hi("DiagnosticError", { fg = colors.red })
 hi("DiagnosticWarn", { fg = colors.yellow })
 hi("DiagnosticInfo", { fg = colors.teal })
@@ -126,7 +130,7 @@ hi("DiagnosticUnderlineWarn", { sp = colors.yellow, undercurl = true })
 hi("DiagnosticUnderlineInfo", { sp = colors.teal, undercurl = true })
 hi("DiagnosticUnderlineHint", { sp = colors.lavender, undercurl = true })
 
--- Treesitter (expanded for more colorful captures)
+-- Treesitter (Bash-focused - direct set for @keyword.conditional.bash to break link)
 hi("@constant", { fg = colors.green })
 hi("@constant.builtin", { fg = colors.peach })
 hi("@constant.macro", { fg = colors.teal })
@@ -148,35 +152,39 @@ hi("@type", { fg = colors.sky })
 hi("@type.builtin", { fg = colors.lavender })
 hi("@constructor", { fg = colors.lavender })
 hi("@parameter", { fg = colors.text, italic = true })
-hi("@variable", { fg = colors.text })
+hi("@variable", { fg = colors.text, italic = true })
 hi("@variable.builtin", { fg = colors.pink })
 hi("@property", { fg = colors.text })
 hi("@field", { fg = colors.teal })
 hi("@punctuation.delimiter", { fg = colors.overlay2 })
 hi("@punctuation.bracket", { fg = colors.overlay1 })
 hi("@punctuation.special", { fg = colors.pink })
--- Bash/Shell TS enhancements
-hi("@keyword.conditional.sh", { fg = colors.sky })  -- if/elif/else/fi
-hi("@keyword.repeat.sh", { fg = colors.sky })  -- for/while
-hi("@keyword.directive.sh", { fg = colors.sapphire })  -- do/done
-hi("@keyword.function.sh", { fg = colors.teal })  -- local/export
-hi("@variable.sh", { fg = colors.text, italic = true })
+-- Bash TS - Direct overrides to break Statement link
+hi("@keyword.conditional.bash", { fg = colors.sky, bold = true })
+hi("@keyword.repeat.bash", { fg = colors.sky, bold = true })
+hi("@keyword.directive.bash", { fg = colors.sapphire, bold = true })
+hi("@keyword.function.bash", { fg = colors.teal, bold = true })
+hi("@variable.bash", { fg = colors.text, italic = true })
+hi("@function.bash", { fg = colors.blue })
+hi("@string.shell", { fg = colors.green })
+-- Clear TS links to Statement
+vim.cmd("hi! clear @keyword.conditional.bash @keyword.repeat.bash @keyword.directive.bash @keyword.function.bash")
+vim.cmd("hi! link @keyword.conditional.bash Conditional")
+vim.cmd("hi! link @keyword.repeat.bash Repeat")
+vim.cmd("hi! link @keyword.directive.bash shRepeat")
+vim.cmd("hi! link @keyword.function.bash shStatement")
 
--- Links (Gruvbox nod)
-hi("htmlLink", { fg = colors.blue, underline = true })
-hi("helpHeader", { fg = colors.lavender, bold = true })
+-- Rainbow Delimiters (6 levels with accents)
+for i = 1, 6 do
+  local rainbow_fg = ({
+    colors.sapphire, colors.teal, colors.yellow, colors.peach, colors.pink, colors.mauve
+  })[i]
+  hi("RainbowDelimiter" .. i, { fg = rainbow_fg })
+end
 
--- Terminal
-hi("TermCursor", { fg = colors.base, bg = colors.text })
-hi("TermCursorNC", { fg = colors.base, bg = colors.overlay1 })
-
--- Clear existing highlights (optional, for purity)
+-- Clear & Set
 vim.cmd("highlight clear")
-
--- Set the colorscheme name
 vim.cmd("set background=dark")
-
--- Links for compatibility
 vim.cmd("hi! link DiagnosticInfo Comment")
 vim.cmd("hi! link DiagnosticHint Comment")
 vim.cmd("hi! link LspInfoList NormalFloat")
