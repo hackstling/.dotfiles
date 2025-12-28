@@ -1,0 +1,185 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Starship.toml - Logo Pastel Neon (Extended Mocha-Inspired)
+# Rewritten with the full 26-color extended palette for seamless Catppuccin-like gradients.
+# Palette 'logo-pastel-neon' maps your neon accents (blue/green/orange/purple) into the structure.
+# Color refs updated: e.g., color_bg1 → base, color_yellow → yellow, color_green → green,
+# color_aqua → teal, color_blue → blue, color_purple → lavender, color_red → red.
+# For langs (c/rust/etc.), bg:teal → teal. Reload: exec $SHELL.
+
+format = """
+[](bg:base fg:base)\
+$os\
+$username\
+[](bg:yellow fg:base)\
+$directory\
+[](fg:yellow bg:green)\
+$git_branch\
+$git_status\
+[](fg:green bg:teal)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:teal bg:blue)\
+$docker_context\
+[](fg:blue bg:lavender)\
+$time\
+[ ](fg:lavender)\
+$line_break$character
+"""
+
+palette = 'logo-pastel-neon'
+
+[palettes.logo-pastel-neon]
+rosewater = "#E8D0E0"
+flamingo = "#D8A8B8"
+pink = "#E0B8E0"
+mauve = "#C8A0D0"
+red = "#FF6A6A"
+maroon = "#D08090"
+peach = "#FFA080"
+yellow = "#FFD080"
+green = "#00FF41"
+teal = "#80E0E0"
+sky = "#80C0FF"
+sapphire = "#40A0FF"
+blue = "#00BFFF"
+lavender = "#D0B8E8"
+text = "#D9D0E2"
+subtext1 = "#B8B0C8"
+subtext0 = "#A8A0B8"
+overlay2 = "#9898B8"
+overlay1 = "#8484A0"
+overlay0 = "#707088"
+surface2 = "#6C6C84"
+surface1 = "#5C5C70"
+surface0 = "#48485A"
+base = "#2C2C36"
+mantle = "#24242E"
+crust = "#1A1A24"
+
+[os]
+disabled = false
+style = "bg:base fg:text"
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:base fg:text"
+style_root = "bg:base fg:text"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:base bg:yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
+
+[git_status]
+style = "bg:teal"
+format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[c]
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[php]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[java]
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[python]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $context) ](fg:text bg:blue)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:lavender"
+format = '[[  $time ](fg:base bg:lavender)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:lavender)'
+vimcmd_replace_symbol = '[](bold fg:lavender)'
+vimcmd_visual_symbol = '[](bold fg:teal)'
