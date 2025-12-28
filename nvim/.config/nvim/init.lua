@@ -18,5 +18,3 @@ require("lazy").setup("plugins")
 
 vim.opt.termguicolors = true -- bufferline
 require("bufferline").setup{} -- bufferline
-
-vim.cmd.colorscheme 'hackstling'
