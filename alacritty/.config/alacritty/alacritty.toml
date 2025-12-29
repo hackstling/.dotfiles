@@ -1,5 +1,6 @@
 [general]
 import = [
+    # "~/.config/alacritty/.config/alacritty/dracula.toml"
   # "~/.config/alacritty/catppuccin-mocha.toml"
   # "~/.config/alacritty/gruvbox_dark.toml"
   "~/.config/alacritty/gruvbox_medium_dark.toml"
