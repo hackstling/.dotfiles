@@ -31,6 +31,5 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 
-
 vim.opt.termguicolors = true -- bufferline
 require("bufferline").setup{} -- bufferline
