@@ -6,6 +6,7 @@ import = [
   "~/.config/alacritty/gruvbox_medium_dark.toml"
   # "~/.config/alacritty/gruvbox_light.toml"
   # "~/.config/alacritty/hackstling.toml"
+  # "~/.config/alacritty/cyberdream.toml"
 ]
 
 [env]
