@@ -16,6 +16,10 @@ exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id ~/.scripts/wallpaper.sh
 exec_always --no-startup-id systemctl --user import-environment DISPLAY
 exec_always --no-startup-id clipmenud
+
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
+
 bindsym $mod+Shift+v exec --no-startup-id clipmenu 
 bindsym $mod+space exec rofi -show window
 # Switch between US and Hungarian keyboard layouts
