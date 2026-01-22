@@ -136,6 +136,8 @@ alias mail-hackstling='neomutt -F ~/.config/mutt/accounts/info@hackstling.com.mu
 # ADDED BY ME for StarShip
 eval "$(starship init bash)"
 
+fastfetch
+
 # ADDED BY ME for tmux start up
 # If not running interactively, do not do anything
 # [[ $- != *i* ]] && return
