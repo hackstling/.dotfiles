@@ -120,7 +120,7 @@ fi
 # ls commands
 alias obsi="$HOME/softWare/Obsidian-1.8.9.AppImage"
 alias hack="$HOME/hacking/extb/hacking/tmux_setup.sh"
-alias discord="$HOME/softWare/Discord/Discord"
+# alias discord="$HOME/softWare/Discord/Discord"
 alias logisim="$HOME/softWare/logisim/logisim_start.sh"
 alias go=go1.26.0
 
