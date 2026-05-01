@@ -4,6 +4,7 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
+vim.cmd("set colorcolumn=120")
 
 vim.opt.conceallevel = 2
 vim.g.vim_markdown_folding_disabled = 1
