@@ -149,4 +149,21 @@ fastfetch
 
 newnote() {
     local templates_dir="$HOME/SecondBrain/templates"
+    local template
+    local dest
+
+    template=$(ls "$templates_dir" | fzf --prompt="Templates:") || return
+
+    read -rp "New note path: " dest
+
+    if [[ -z "$dest" ]]; then
+        echo "No file name / destination path provided."
+        return
+    fi
+
+    # TODO: Handle the "only file name" option
+    # TODO: Add .md extension if there is none.
+    
+    cp "$templates_dir"/"$template" "$dest"
+    nvim "$dest"
 }
