@@ -145,3 +145,8 @@ fastfetch
 # Otherwise start tmux
 # [[ -z "$TMUX" ]] && exec tmux
 . "$HOME/.cargo/env"
+
+
+newnote() {
+    local templates_dir="$HOME/SecondBrain/templates"
+}
