@@ -5,6 +5,7 @@ return {
             options = {
                 -- theme = 'dracula'
                 theme = 'gruvbox_dark'
+                -- theme = 'everforest'
             }
         })
     end
