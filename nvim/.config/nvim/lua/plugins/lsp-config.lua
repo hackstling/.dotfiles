@@ -11,7 +11,7 @@ return {
         version = "1.29.0",
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer", "gopls" }, -- find the list on github page of mason-lpsconfig
+                ensure_installed = { "lua_ls", "clangd", "bashls", "pyright", "jedi_language_server", "pyre", "pylsp", "jdtls", "rust_analyzer", "gopls", "powershell_es" }, -- find the list on github page of mason-lpsconfig
                 -- ensure_installed = { "lua_ls", "clangd", "jedi_language_server", "pyre", "pylsp", "jdtls" } -- find the list on github page of mason-lpsconfig
             })
         end
@@ -57,8 +57,25 @@ return {
               },
             })
 
+            -- PowerShell Editor Services
+            vim.lsp.config("powershell_es", {
+                capabilities = capabilities,
+                bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
+                shell = "pwsh",
+                settings = {
+                    powershell = {
+                        codeFormatting = {
+                            Preset = "OTBS", -- change to "Stroustrup", "Allman", etc. if you prefer
+                        },
+                        scriptAnalysis = {
+                            enable = true,
+                        },
+                    },
+                },
+            })
+
             -- Enable servers
-            vim.lsp.enable({ "lua_ls", "bashls", "clangd", "pyre", "jedi_language_server", "pylsp", "jdtls", "rust_analyzer", "gopls" })
+            vim.lsp.enable({ "lua_ls", "bashls", "clangd", "pyre", "jedi_language_server", "pylsp", "jdtls", "rust_analyzer", "gopls", "powershell_es" })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "See documentation"})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition"})
