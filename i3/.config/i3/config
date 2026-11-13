@@ -18,6 +18,7 @@ exec_always --no-startup-id systemctl --user import-environment DISPLAY
 exec_always --no-startup-id clipmenud
 bindsym $mod+Shift+v exec --no-startup-id clipmenu 
 bindsym $mod+space exec rofi -show window
+bindsym $mod+Shift+x exec --no-startup-id loginctl lock-session
 # Switch between US and Hungarian keyboard layouts
 exec_always --no-startup-id setxkbmap -layout us,hu -option grp:win_space_toggle
 
@@ -43,6 +44,12 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Automatically lock after 10 minutes of inactivity
+exec --no-startup-id xautolock \
+    -time 10 \
+    -locker "loginctl lock-session" \
+    -detectsleep
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
