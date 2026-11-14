@@ -3,10 +3,11 @@ import = [
     # "~/.config/alacritty/.config/alacritty/dracula.toml"
   # "~/.config/alacritty/catppuccin-mocha.toml"
   # "~/.config/alacritty/gruvbox_dark.toml"
-  "~/.config/alacritty/gruvbox_medium_dark.toml"
+  # "~/.config/alacritty/gruvbox_medium_dark.toml"
   # "~/.config/alacritty/gruvbox_light.toml"
   # "~/.config/alacritty/hackstling.toml"
-  # "~/.config/alacritty/cyberdream.toml"
+  "~/.config/alacritty/cyberdream.toml"
+  # "~/.config/alacritty/melange.toml"
 ]
 
 [env]
