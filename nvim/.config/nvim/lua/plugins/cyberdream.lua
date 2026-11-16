@@ -1,6 +1,6 @@
 return {
     "scottmckendry/cyberdream.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     opts = {
         variant = "default",  -- "muted" gives a softer dark variant
