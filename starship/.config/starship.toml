@@ -27,7 +27,20 @@ $time\
 $line_break$character
 """
 
-palette = 'gruvbox_dark'
+palette = "cyberdream"
+
+[palettes.cyberdream]
+color_fg0     = '#ffffff'   # foreground
+color_bg1     = '#1e2124'   # bg_alt
+color_bg3     = '#3c4048'   # bg_highlight
+color_blue    = '#5ea1ff'
+color_aqua    = '#5ef1ff'   # cyan
+color_green   = '#5eff6c'
+color_orange  = '#ffbd5e'
+color_purple  = '#bd5eff'
+color_red     = '#ff6e5e'
+color_yellow  = '#f1ff5e'
+color_magenta = '#ff5ef1'   # (optional, useful if you reference it later)
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
