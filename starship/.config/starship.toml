@@ -4,9 +4,9 @@ format = """
 [](color_bg1)\
 $os\
 $username\
-[](bg:color_yellow fg:color_bg1)\
+[](bg:color_aqua fg:color_bg1)\
 $directory\
-[](fg:color_yellow bg:color_green)\
+[](fg:color_aqua bg:color_green)\
 $git_branch\
 $git_status\
 [](fg:color_green bg:color_aqua)\
@@ -21,13 +21,13 @@ $haskell\
 $python\
 [](fg:color_aqua bg:color_blue)\
 $docker_context\
-[](fg:color_blue bg:color_purple)\
+[](fg:color_aqua bg:color_purple)\
 $time\
 [ ](fg:color_purple)\
 $line_break$character
 """
 
-palette = "cyberdream"
+palette = "gruvbox_dark"
 
 [palettes.cyberdream]
 color_fg0     = '#ffffff'   # foreground

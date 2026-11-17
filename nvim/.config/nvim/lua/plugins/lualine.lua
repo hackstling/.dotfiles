@@ -4,8 +4,8 @@ return {
         require('lualine').setup({
             options = {
                 -- theme = 'dracula'
-                -- theme = 'gruvbox_dark'
-                theme = 'cyberdream'
+                theme = 'gruvbox_dark'
+                -- theme = 'cyberdream'
                 -- theme = 'everforest'
             }
         })
