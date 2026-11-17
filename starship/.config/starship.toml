@@ -4,9 +4,9 @@ format = """
 [](color_bg1)\
 $os\
 $username\
-[](bg:color_aqua fg:color_bg1)\
+[](bg:color_yellow fg:color_bg1)\
 $directory\
-[](fg:color_aqua bg:color_green)\
+[](fg:color_yellow bg:color_green)\
 $git_branch\
 $git_status\
 [](fg:color_green bg:color_aqua)\
@@ -21,26 +21,13 @@ $haskell\
 $python\
 [](fg:color_aqua bg:color_blue)\
 $docker_context\
-[](fg:color_aqua bg:color_purple)\
+[](fg:color_blue bg:color_purple)\
 $time\
 [ ](fg:color_purple)\
 $line_break$character
 """
 
 palette = "gruvbox_dark"
-
-[palettes.cyberdream]
-color_fg0     = '#ffffff'   # foreground
-color_bg1     = '#1e2124'   # bg_alt
-color_bg3     = '#3c4048'   # bg_highlight
-color_blue    = '#5ea1ff'
-color_aqua    = '#5ef1ff'   # cyan
-color_green   = '#5eff6c'
-color_orange  = '#ffbd5e'
-color_purple  = '#bd5eff'
-color_red     = '#ff6e5e'
-color_yellow  = '#f1ff5e'
-color_magenta = '#ff5ef1'   # (optional, useful if you reference it later)
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
